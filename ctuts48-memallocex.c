@@ -1,0 +1,58 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    // Dynamic Memory Allocation
+    // ABC Pvt Ltd. manages employee records of other companies.
+    // Employee Id can be of any length and it can contain any character
+    // For 3 employees, you have to take 'length of employee id' as input in a length integer variable.
+    // Then, you have to take employee id as an input and display it on screen.
+    // Store the employee id in a character array which is allocated dynamically.
+    // You have to create only one character array dynamically
+    // EXAMPLE:
+    // Employee 1:
+    // Enter no of characters in your eId
+    // 45
+    // Dynamically allocate the character array.
+    // take input from user
+
+    // Employee 2:
+    // Enter no of characters in your eId
+    // 4
+    // Dynamically allocate the character array.
+    // take input from user
+
+    // Employee 3:
+    // Enter no of characters in your eId
+    // 9
+    // Dynamically allocate the character array.
+    // take input from user
+
+    int length;
+    char *eid, a, b;
+
+    for (int j = 0; j < 3; j++)
+    {
+        printf("Enter the length of employee id of employee %d: ", j+1);
+        scanf("%d", &length);
+        getchar(); //when you press enter after inputting the value of length the scanf for a will take it as an input for itself and move directly to b
+        // getchar consumes this input of enter key hence leaving the next scanf open for input
+        printf("Enter the value of a\n");
+        scanf("%c", &a);
+        getchar();
+        printf("Enter the value of b\n");
+        scanf("%c", &b);
+        getchar();
+
+        eid = (char *)malloc((length+1) * sizeof(char));
+
+        printf("Enter your employee id: ");
+        scanf("%s", eid);
+
+        printf("\nYour employee id is: %s\n", eid);
+        free(eid);
+    }
+
+    return 0;
+}
